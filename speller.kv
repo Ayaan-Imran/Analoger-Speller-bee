@@ -1,0 +1,27 @@
+WindowManager:
+    SelectFile:
+    AskSpellings:
+
+<SelectFile>:
+    name: "select file window"
+
+    BoxLayout:
+        orientation: "vertical"
+
+        Button:
+            text: "Next"
+            on_release:
+                app.root.current = "ask spellings window"
+                root.manager.transition.direction = "left"
+
+<AskSpellings>:
+    name: "ask spellings window"
+
+    BoxLayout:
+        orientation: "vertical"
+
+        Button:
+            text: "<"
+            on_release:
+                app.root.current = "select file window"
+                root.manager.transition.direction = "right"
