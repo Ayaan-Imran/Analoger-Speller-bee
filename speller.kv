@@ -1,6 +1,48 @@
 WindowManager:
+    Greeting:
     SelectFile:
     AskSpellings:
+
+<Greeting>:
+    name: "greeting window"
+
+    BoxLayout:
+        orientation: "vertical"
+
+        Label:
+            text: "Welcome Hamdan"
+            font_name: "Jomhuria-Regular.ttf"
+            font_size: "170dp"
+            color: 255/255, 173/255, 173/255, 255/255
+
+        Button:
+            background_color: 23/255, 23/255, 23/255, 0
+
+            text: "Choose file >"
+            font_name: "DelaGothicOne-Regular.ttf"
+            font_size: "20dp"
+
+            size_hint: .5, None
+            height: "85dp"
+
+            pos_hint: { "center_x": .5 }
+
+            canvas.before:
+                Color:
+                    rgba: 214/255, 40/255, 40/255, 1
+
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+
+                    radius: [24]
+
+            on_press:
+                app.root.current = "select file window"
+                app.change_window_background("#264653")
+
+        Label: # This is for adding additional space
+            size_hint: 1, .5
 
 <SelectFile>:
     name: "select file window"
@@ -8,11 +50,14 @@ WindowManager:
     BoxLayout:
         orientation: "vertical"
 
-        Button:
-            text: "Next"
-            on_release:
+        FileChooserListView:
+            on_submit:
+                app.pdf_file_path = self.selection[0]
                 app.root.current = "ask spellings window"
-                root.manager.transition.direction = "left"
+
+            filters: ["*.pdf"]
+            path: "C:/Users/ayaan/OneDrive/Desktop"
+
 
 <AskSpellings>:
     name: "ask spellings window"
