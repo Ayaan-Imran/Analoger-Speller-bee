@@ -3,6 +3,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from kivy.utils import get_color_from_hex
 from kivy.properties import ColorProperty
+from kivy.lang.builder import Builder
 
 import PyPDF2
 
@@ -31,7 +32,7 @@ class WindowManager(ScreenManager):
 
 
 # Create app
-class SpellerApp(App):
+class AnalogerSpellerBeeApp(App):
     pdf_file_path = ""
     vocab_words = None
     input_widgets = {
@@ -63,6 +64,11 @@ class SpellerApp(App):
     # Create Engine
     engine = pyttsx3.init()
     engine.setProperty("rate", 125)
+
+    def build(self):
+        self.icon = "icon.ico"
+        self.title = "Analoger spelling bee"
+        return Builder.load_file("speller.kv")
 
     def change_window_background(self, hex_color):
         Window.clearcolor = get_color_from_hex(hex_color)
@@ -130,4 +136,4 @@ class SpellerApp(App):
 
 
 # Run the App
-SpellerApp().run()
+AnalogerSpellerBeeApp().run()
