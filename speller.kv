@@ -54,6 +54,8 @@ WindowManager:
             on_submit:
                 app.pdf_file_path = self.selection[0]
                 app.root.current = "ask spellings window"
+                app.get_vocab_words(app.pdf_file_path)
+                app.change_window_background("#d9ed92")
 
             filters: ["*.pdf"]
             path: "C:/Users/ayaan/OneDrive/Desktop"
@@ -62,11 +64,249 @@ WindowManager:
 <AskSpellings>:
     name: "ask spellings window"
 
-    BoxLayout:
-        orientation: "vertical"
+    ScrollView:
+        BoxLayout:
+            size_hint_y: None
+            height: "1000dp"
+            orientation: "vertical"
 
-        Button:
-            text: "<"
-            on_release:
-                app.root.current = "select file window"
-                root.manager.transition.direction = "right"
+            Label:
+                text: "Spell the words"
+                color: 0/255, 127/255, 95/255, 1
+                font_name: "DelaGothicOne-Regular.ttf"
+                font_size: "75dp"
+
+            Label: # Empty text for space
+                text: ""
+                font_size: "30dp"
+
+            # spelling 1
+            BoxLayout:
+                Button:
+                    on_press: app.speak_word("b1")
+                    background_color: 0, 0, 0, 0
+                    size_hint: None, None
+                    size: "100dp", "100dp"
+
+                    Image:
+                        source: "speaker.png"
+                        allow_stretch: True
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+
+                TextInput:
+                    multiline: False
+                    font_size: "20dp"
+                    on_text_validate:
+                        app.add_widget_in_input_list(self, 0)
+                        app.user_vocab_words[0] = self.text.lower()
+
+            # Spelling 2
+            BoxLayout:
+                Button:
+                    on_press: app.speak_word("b2")
+                    background_color: 0, 0, 0, 0
+                    size_hint: None, None
+                    size: "100dp", "100dp"
+
+                    Image:
+                        source: "speaker.png"
+                        allow_stretch: True
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+
+                TextInput:
+                    multiline: False
+                    font_size: "20dp"
+                    on_text_validate:
+                        app.add_widget_in_input_list(self, 1)
+                        app.user_vocab_words[1] = self.text.lower()
+
+
+            # Spelling 3
+            BoxLayout:
+                Button:
+                    on_press: app.speak_word("b3")
+                    background_color: 0, 0, 0, 0
+                    size_hint: None, None
+                    size: "100dp", "100dp"
+
+                    Image:
+                        source: "speaker.png"
+                        allow_stretch: True
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+
+                TextInput:
+                    multiline: False
+                    font_size: "20dp"
+                    on_text_validate:
+                        app.add_widget_in_input_list(self, 2)
+                        app.user_vocab_words[2] = self.text.lower()
+
+            # Spelling 4
+            BoxLayout:
+                Button:
+                    on_press: app.speak_word("b4")
+                    background_color: 0, 0, 0, 0
+                    size_hint: None, None
+                    size: "100dp", "100dp"
+
+                    Image:
+                        source: "speaker.png"
+                        allow_stretch: True
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+
+                TextInput:
+                    multiline: False
+                    font_size: "20dp"
+                    on_text_validate:
+                        app.add_widget_in_input_list(self, 3)
+                        app.user_vocab_words[3] = self.text.lower()
+
+            # Spelling 5
+            BoxLayout:
+                Button:
+                    on_press: app.speak_word("b5")
+                    background_color: 0, 0, 0, 0
+                    size_hint: None, None
+                    size: "100dp", "100dp"
+
+                    Image:
+                        source: "speaker.png"
+                        allow_stretch: True
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+
+                TextInput:
+                    multiline: False
+                    font_size: "20dp"
+                    on_text_validate:
+                        app.add_widget_in_input_list(self, 4)
+                        app.user_vocab_words[4] = self.text.lower()
+
+            # Spelling 6
+            BoxLayout:
+                Button:
+                    on_press: app.speak_word("b6")
+                    background_color: 0, 0, 0, 0
+                    size_hint: None, None
+                    size: "100dp", "100dp"
+
+                    Image:
+                        source: "speaker.png"
+                        allow_stretch: True
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+
+                TextInput:
+                    multiline: False
+                    font_size: "20dp"
+                    on_text_validate:
+                        app.add_widget_in_input_list(self, 5)
+                        app.user_vocab_words[5] = self.text.lower()
+
+            # Spelling 7
+            BoxLayout:
+                Button:
+                    on_press: app.speak_word("b7")
+                    background_color: 0, 0, 0, 0
+                    size_hint: None, None
+                    size: "100dp", "100dp"
+
+                    Image:
+                        source: "speaker.png"
+                        allow_stretch: True
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+
+                TextInput:
+                    multiline: False
+                    font_size: "20dp"
+                    on_text_validate:
+                        app.add_widget_in_input_list(self, 6)
+                        app.user_vocab_words[6] = self.text.lower()
+
+            # Spelling 8
+            BoxLayout:
+                Button:
+                    on_press: app.speak_word("b8")
+                    background_color: 0, 0, 0, 0
+                    size_hint: None, None
+                    size: "100dp", "100dp"
+
+                    Image:
+                        source: "speaker.png"
+                        allow_stretch: True
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+
+                TextInput:
+                    multiline: False
+                    font_size: "20dp"
+                    on_text_validate:
+                        app.add_widget_in_input_list(self, 7)
+                        app.user_vocab_words[7] = self.text.lower()
+
+            # Spelling 9
+            BoxLayout:
+                Button:
+                    on_press: app.speak_word("b9")
+                    background_color: 0, 0, 0, 0
+                    size_hint: None, None
+                    size: "100dp", "100dp"
+
+                    Image:
+                        source: "speaker.png"
+                        allow_stretch: True
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+
+                TextInput:
+                    multiline: False
+                    font_size: "20dp"
+                    on_text_validate:
+                        app.user_vocab_words[8] = self.text.lower()
+                        app.add_widget_in_input_list(self, 8)
+
+
+            # Spelling 10
+            BoxLayout:
+                Button:
+                    on_press: app.speak_word("b10")
+                    background_color: 0, 0, 0, 0
+                    size_hint: None, None
+                    size: "100dp", "100dp"
+
+                    Image:
+                        source: "speaker.png"
+                        allow_stretch: True
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+
+                TextInput:
+                    multiline: False
+                    font_size: "20dp"
+                    on_text_validate:
+                        app.user_vocab_words[9] = self.text.lower()
+                        app.input_widgets[9] = self
+
+
+            Button:
+                text: "Check"
+                size_hint: 1, .7
+                font_size: "40dp"
+                font_name: "Teko-Medium.ttf"
+                background_color: 43/255, 147/255, 72/255, 1
+                on_press: app.check_user_guess()
